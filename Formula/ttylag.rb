@@ -8,11 +8,17 @@ class Ttylag < Formula
   depends_on "go" => :build
 
   def install
+    # Standard Go build with minimal symbols and stripped debug info
     ldflags = "-s -w"
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    # Generate and install man page
+    system "go", "run", "cmd/genman/main.go", "-o", "ttylag.1"
+    man1.install "ttylag.1"
   end
 
   test do
+    # Basic sanity check to ensure the binary runs
     system "#{bin}/ttylag", "--version"
   end
 end
