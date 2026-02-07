@@ -5,27 +5,25 @@
 class Ttylag < Formula
   desc "Userspace PTY wrapper that simulates laggy/slow network connections"
   homepage "https://github.com/cbrunnkvist/ttylag"
-  version "0.1.3"
+  version "0.1.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.3/ttylag_Darwin_x86_64.tar.gz"
-      sha256 "c2a9060dd7e8e0b2b2302646cf46c5a8c278339550ea38620009f33a6636b168"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Darwin_x86_64.tar.gz"
+      sha256 "e02385272c46b89cfe4027b3b97fffbf21a69c2ff39b9dc9f7bdbd87cc576322"
 
       def install
-        system "go", "build", *std_go_args(ldflags: "-s -w")
-        system "go", "run", "cmd/genman/main.go", "-o", "ttylag.1"
+        bin.install "ttylag"
         man1.install "ttylag.1"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.3/ttylag_Darwin_arm64.tar.gz"
-      sha256 "9910af5ed75ccb20450677fbd4ab22ec18f571320053e58078836036b88b3d8a"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Darwin_arm64.tar.gz"
+      sha256 "c2380da1889c66d82cf9e2fb26805a4c70676a32dfcffc9a2b225ea025802e15"
 
       def install
-        system "go", "build", *std_go_args(ldflags: "-s -w")
-        system "go", "run", "cmd/genman/main.go", "-o", "ttylag.1"
+        bin.install "ttylag"
         man1.install "ttylag.1"
       end
     end
@@ -33,20 +31,18 @@ class Ttylag < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.3/ttylag_Linux_x86_64.tar.gz"
-      sha256 "79dc69bd7f7896991724bf6a6746b85d8e55861c0ba16db72e1c640145f33f4f"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Linux_x86_64.tar.gz"
+      sha256 "a191f84bf386f6ed2d6a20f32c215d013116d32f9ae3d101a5077e9a43ffce85"
       def install
-        system "go", "build", *std_go_args(ldflags: "-s -w")
-        system "go", "run", "cmd/genman/main.go", "-o", "ttylag.1"
+        bin.install "ttylag"
         man1.install "ttylag.1"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.3/ttylag_Linux_arm64.tar.gz"
-      sha256 "a70ead72cc44c1c9a0b57d492a8591f296ce2714715d9468d79b21ebafdd9d9f"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Linux_arm64.tar.gz"
+      sha256 "0f8e7eadbb9aa93c6df1b1f9691a54f738f9e137661473ad44a415d769c92c50"
       def install
-        system "go", "build", *std_go_args(ldflags: "-s -w")
-        system "go", "run", "cmd/genman/main.go", "-o", "ttylag.1"
+        bin.install "ttylag"
         man1.install "ttylag.1"
       end
     end
