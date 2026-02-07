@@ -5,13 +5,13 @@
 class Ttylag < Formula
   desc "Userspace PTY wrapper that simulates laggy/slow network connections"
   homepage "https://github.com/cbrunnkvist/ttylag"
-  version "0.1.4"
+  version "0.1.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Darwin_x86_64.tar.gz"
-      sha256 "e02385272c46b89cfe4027b3b97fffbf21a69c2ff39b9dc9f7bdbd87cc576322"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.5/ttylag_Darwin_x86_64.tar.gz"
+      sha256 "8cfabd8b9758a9bdf614871215489af683a53217861eff48bb4a1d13689b5767"
 
       def install
         bin.install "ttylag"
@@ -19,8 +19,8 @@ class Ttylag < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Darwin_arm64.tar.gz"
-      sha256 "c2380da1889c66d82cf9e2fb26805a4c70676a32dfcffc9a2b225ea025802e15"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.5/ttylag_Darwin_arm64.tar.gz"
+      sha256 "dbe300d55c656188582cc7af7063aa41372fceea005ba7d8e3727082d26b552d"
 
       def install
         bin.install "ttylag"
@@ -31,16 +31,16 @@ class Ttylag < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Linux_x86_64.tar.gz"
-      sha256 "a191f84bf386f6ed2d6a20f32c215d013116d32f9ae3d101a5077e9a43ffce85"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.5/ttylag_Linux_x86_64.tar.gz"
+      sha256 "1a0edb29318c7cebd32e882867c3d7879d52f40c95dda7c35c9eedd2c05d04c6"
       def install
         bin.install "ttylag"
         man1.install "ttylag.1"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.4/ttylag_Linux_arm64.tar.gz"
-      sha256 "0f8e7eadbb9aa93c6df1b1f9691a54f738f9e137661473ad44a415d769c92c50"
+      url "https://github.com/cbrunnkvist/ttylag/releases/download/0.1.5/ttylag_Linux_arm64.tar.gz"
+      sha256 "6dd79e59395d4f669cf40f49aafe82027ec0505eafc315067a2dc21dc28e6573"
       def install
         bin.install "ttylag"
         man1.install "ttylag.1"
